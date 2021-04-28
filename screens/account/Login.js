@@ -1,12 +1,64 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { ScrollView, StyleSheet, Text, View, Image } from 'react-native'
+import { Divider } from 'react-native-elements'
 
 export default function Login() {
     return (
-        <View>
-            <Text>Login</Text>
-        </View>
+        <ScrollView>
+            <Image
+                source={require("../../assets/restaurant-logo.png")}
+                resizeMode="contain"
+                style={styles.image}
+            />
+            <View
+                style={styles.container}
+            >
+                <Text> Login Form</Text>
+                <CreateAcocount/>
+            </View>
+            <Divider
+                style={styles.divider}
+            />
+        </ScrollView>
     )
 }
 
-const styles = StyleSheet.create({})
+function CreateAcocount(props){
+    return (
+        <Text
+            style={styles.regiter}
+            onPress={() => console.log("Register")}
+        >
+            Aún no tienes Cuenta? {" "}
+            <Text
+                style={styles.btnRegiter}
+            >
+                Regístrate
+            </Text>
+        </Text>
+    )
+}
+
+const styles = StyleSheet.create({
+    image: {
+        height: 150,
+        width: "100%",
+        marginBottom: 20
+    },
+    container: {
+        marginHorizontal: 40
+    },
+    divider: {
+        backgroundColor: "#442484",
+        margin: 40
+    },
+    regiter:{
+        marginTop: 15,
+        marginHorizontal: 10,
+        alignSelf: "center"
+    },
+    btnRegiter: {
+        color: "#442484",
+        fontWeight: "bold"
+    }
+})
